@@ -3,13 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:vm="clr-namespace:LaboratoryWork1.ViewModel"
         xmlns:local="clr-namespace:LaboratoryWork1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="#222D33" ResizeMode="NoResize">
-    <Window.DataContext>
-        <vm:MainViewModel/>
-    </Window.DataContext>
     <Grid>
         <Grid.Resources>
             <Style TargetType="Button">
@@ -17,12 +13,7 @@
                 <Setter Property="Foreground" Value="#1E1E1E"></Setter>
                 <Setter Property="Height" Value="40"></Setter>
                 <Setter Property="Margin" Value="0 30 0 0"></Setter>
-                <Style.Triggers>
-                    <Trigger Property="IsEnabled" Value="False">
-                        <Setter Property="Background" Value="#9ae69a"></Setter>
-                        <Setter Property="Foreground" Value="#1E1E1E"></Setter>
-                    </Trigger>
-                </Style.Triggers>
+  
             </Style>
         </Grid.Resources>
         <Grid.ColumnDefinitions>
@@ -30,24 +21,25 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1">
-            <TextBox x:Name="Input" Width="150" Height="40" Margin="0 30 0 0" TextAlignment="Left" VerticalContentAlignment="Center" ToolTip="Input number or array like this: 1 or 1,2,3,4,5,6 or 1 2 3 4 5"></TextBox>
-            <Button Width="150" Content="Add number" Command="{Binding AddCommand}" CommandParameter="{Binding Text, ElementName=Input}"></Button>
+            <TextBox x:Name="Input" Width="150" Height="40" Margin="0 30 0 0" TextAlignment="Left" VerticalContentAlignment="Center" Text="Look at the tooltips" ToolTip="Input number or array like this: 1 or 1,2,3,4,5,6 or 1 2 3 4 5" GotFocus="Input_GotFocus"></TextBox>
+            <Button x:Name="AddElementsButton" Width="150" Content="Add number" Click="AddElementsButton_Click"></Button>
             <StackPanel Orientation="Horizontal" Height="40" Width="240" Margin="0 30 0 0">
                 <StackPanel.Resources>
                     <Style TargetType="Button">
                         <Setter Property="Width" Value="80"></Setter>
                         <Setter Property="FontSize" Value="12"></Setter>
+                        <Setter Property="IsEnabled" Value="False"></Setter>
                     </Style>
                 </StackPanel.Resources>
-                <Button Content="Delete first" Command="{Binding DeleteFirstCommand}"></Button>
-                <Button Content=" Delete&#xD;&#xA;selected" HorizontalContentAlignment="Center" Command="{Binding DeleteSelectedCommand}"></Button>
-                <Button Content="Delete last" Command="{Binding DeleteLastCommand}"></Button>
+                <Button x:Name="DeleteFirstButton" Content="Delete first"></Button>
+                <Button x:Name="DeleteSelectedButton"  Content=" Delete&#xD;&#xA;selected" HorizontalContentAlignment="Center" Click="DeleteSelectedButton_Click"></Button>
+                <Button x:Name="DeleteLastButton"  Content="Delete last"></Button>
             </StackPanel>
-            <Button Content="Fill" Width="150" Command="{Binding FillCommand}"></Button>
-            <Button Content="Clear" Width="150"></Button>
-            <Button Content="Run" Width="150"></Button>
+            <Button x:Name="FillButton" Content="Fill" Width="150"></Button>
+            <Button x:Name="ClearButton" Content="Clear" Width="150"></Button>
+            <Button x:Name="RunButton" Content="Run" Width="150"></Button>
         </StackPanel>
-        <ListBox Grid.Column="0" Margin="30" MinWidth="450" MaxWidth="450" SelectionMode="Extended" HorizontalAlignment="Left" VerticalAlignment="Center" Height="70" Background="#1f1f1f" ItemsSource="{Binding Numbers}" SelectionChanged="ListBox_SelectionChanged">
+        <ListBox x:Name="ArrayBox" Grid.Column="0" Margin="30" MinWidth="450" MaxWidth="450" SelectionMode="Extended" HorizontalAlignment="Left" VerticalAlignment="Center" Height="70" Background="#1f1f1f" SelectionChanged="ArrayBox_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding}"></TextBlock>
