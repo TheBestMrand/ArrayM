@@ -17,6 +17,12 @@
                 <Setter Property="Foreground" Value="#1E1E1E"></Setter>
                 <Setter Property="Height" Value="40"></Setter>
                 <Setter Property="Margin" Value="0 30 0 0"></Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="Background" Value="#9ae69a"></Setter>
+                        <Setter Property="Foreground" Value="#1E1E1E"></Setter>
+                    </Trigger>
+                </Style.Triggers>
             </Style>
         </Grid.Resources>
         <Grid.ColumnDefinitions>
@@ -33,11 +39,11 @@
                         <Setter Property="FontSize" Value="12"></Setter>
                     </Style>
                 </StackPanel.Resources>
-                <Button Content="Delete first"></Button>
+                <Button Content="Delete first" Command="{Binding DeleteFirstCommand}"></Button>
                 <Button Content=" Delete&#xD;&#xA;selected" HorizontalContentAlignment="Center" Command="{Binding DeleteSelectedCommand}"></Button>
-                <Button Content="Delete last"></Button>
+                <Button Content="Delete last" Command="{Binding DeleteLastCommand}"></Button>
             </StackPanel>
-            <Button Content="Fill" Width="150"></Button>
+            <Button Content="Fill" Width="150" Command="{Binding FillCommand}"></Button>
             <Button Content="Clear" Width="150"></Button>
             <Button Content="Run" Width="150"></Button>
         </StackPanel>
@@ -49,8 +55,8 @@
             </ListBox.ItemTemplate>
             <ListBox.Resources>
                 <Style TargetType="ScrollBar">
-                    <Setter Property="Background" Value="#4d4d4d"></Setter>
-                    <Setter Property="BorderBrush" Value="#4d4d4d"></Setter>
+                    <Setter Property="Background" Value="#2e2e2e"></Setter>
+                    <Setter Property="BorderBrush" Value="#2e2e2e"></Setter>
                 </Style>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="Height" Value="50"></Setter>

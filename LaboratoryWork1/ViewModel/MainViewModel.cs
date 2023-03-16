@@ -13,6 +13,8 @@ namespace LaboratoryWork1.ViewModel
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        private ListBox _listBox;
+
         private int[] _numbers;
         public int[] Numbers
         {
@@ -21,6 +23,8 @@ namespace LaboratoryWork1.ViewModel
             {
                 _numbers = value;
                 OnPropertyChanged(nameof(Numbers));
+                DeleteLastCommand.RaiseCanExecuteChanged();
+                DeleteFirstCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -33,11 +37,19 @@ namespace LaboratoryWork1.ViewModel
                 _selectedNumbers = value;
                 OnPropertyChanged(nameof(SelectedNumbers));
                 DeleteSelectedCommand.RaiseCanExecuteChanged(); 
+                if(_selectedNumbers.Length == 0)
+                {
+                    _listBox.UnselectAll();
+                }
             }
         }
 
         public AddCommand AddCommand { get; private set; }
         public DeleteSelectedCommand DeleteSelectedCommand { get; private set; }
+        public DeleteFirstCommand DeleteFirstCommand { get; private set; }
+        public DeleteLastCommand DeleteLastCommand { get; private set; }
+        public FillCommand FillCommand { get; private set; }
+        public ListBox ListBox { get => _listBox; set => _listBox = value; }
 
         public MainViewModel()
         {
@@ -45,6 +57,9 @@ namespace LaboratoryWork1.ViewModel
 
             AddCommand = new AddCommand(this);
             DeleteSelectedCommand = new DeleteSelectedCommand(this);
+            DeleteFirstCommand = new DeleteFirstCommand(this);
+            DeleteLastCommand = new DeleteLastCommand(this);
+            FillCommand = new FillCommand(this);
         }
 
         private void OnPropertyChanged(string property)

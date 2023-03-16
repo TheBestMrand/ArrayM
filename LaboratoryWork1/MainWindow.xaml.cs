@@ -35,7 +35,7 @@ namespace LaboratoryWork1
             if (viewModel != null)
             {
                 viewModel.SelectedNumbers = listBox.SelectedItems.Cast<int>().ToArray();
-
+                viewModel.ListBox = listBox;
             }
         }
 
