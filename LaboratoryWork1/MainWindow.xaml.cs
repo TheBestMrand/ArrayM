@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Text.RegularExpressions;
 using System.ComponentModel;
-using System.Windows.Input;
 
 namespace LaboratoryWork1
 {
@@ -92,7 +88,7 @@ namespace LaboratoryWork1
 
             for (int i = ArrayBox.Items.Count - 1; i >= 0; i--)
             {
-                ListBoxItem listBoxItem = ArrayBox.ItemContainerGenerator.ContainerFromIndex(i) as ListBoxItem;
+                ListBoxItem? listBoxItem = ArrayBox.ItemContainerGenerator.ContainerFromIndex(i) as ListBoxItem;
                 if (listBoxItem != null && listBoxItem.IsSelected)
                 {
                     conver.RemoveAt(i);

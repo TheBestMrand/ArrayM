@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LaboratoryWork1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800" Background="#222D33" ResizeMode="NoResize">
+        Title="Main" Height="500" Width="800" Background="#222D33" ResizeMode="NoResize">
     <Grid>
         <Grid.Resources>
             <Style TargetType="Button">

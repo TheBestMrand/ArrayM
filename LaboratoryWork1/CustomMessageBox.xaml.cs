@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LaboratoryWork1
 {
@@ -28,6 +18,7 @@ namespace LaboratoryWork1
         {
             InitializeComponent();
             Message.Text = message;
+            this.Title = iconPath.Remove(iconPath.Length - 4);
             iconPath = "pack://application:,,,/Resources/" + iconPath;
             Icon.Source = new BitmapImage(new Uri(iconPath, UriKind.RelativeOrAbsolute));
         }
