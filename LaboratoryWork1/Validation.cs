@@ -12,41 +12,17 @@ namespace LaboratoryWork1
 {
     public class Validation
     {
-        private readonly NumberFormatInfo _currentCultureInfo;
-
-        public Validation()
-        {
-            _currentCultureInfo = CultureInfo.CurrentCulture.NumberFormat;
-        }
-
-        private string HandleCommaAsSeparator(string input)
-        {
-            var parts = input.Split(',');
-
-            if (parts.Length > 1)
-            {
-                for (int i = 0; i < parts.Length; i++)
-                {
-                    if (!string.IsNullOrEmpty(parts[i]))
-                    {
-                        parts[i] = parts[i].Trim();
-                    }
-                }
-            }
-
-            return string.Join(" ", parts);
-        }
-
         public string ProccesInput(string input)
         {
             string pattern = @"[\[\{,]|[\]\}]|\s+";
             string replaced = Regex.Replace(input, pattern, " ");
+            replaced = Regex.Replace(replaced, @"\s{2,}", " ");
             return replaced.Trim();
         }
 
         public bool ValidateInput(string input)
         {
-            return Regex.IsMatch(input, @"^(\d+(\s+\d+)*)$");
+            return Regex.IsMatch(input, @"^(-?\d+(\s+-?\d+)*)$");
         }
     }
 }

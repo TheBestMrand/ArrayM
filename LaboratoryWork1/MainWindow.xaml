@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LaboratoryWork1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="#222D33" ResizeMode="NoResize">
+        Title="MainWindow" Height="500" Width="800" Background="#222D33" ResizeMode="NoResize">
     <Grid>
         <Grid.Resources>
             <Style TargetType="Button">
@@ -21,7 +21,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1">
-            <TextBox x:Name="Input" Width="150" Height="40" Margin="0 30 0 0" TextAlignment="Left" VerticalContentAlignment="Center" Text="Look at the tooltips" ToolTip="Input number or array like this: 1 or 1,2,3,4,5,6 or 1 2 3 4 5" GotFocus="Input_GotFocus"></TextBox>
+            <TextBox x:Name="Input" Width="150" Height="40" Margin="0 30 0 0" TextAlignment="Left" VerticalContentAlignment="Center" Text="Look at the tooltips" ToolTip="Input number or array like this: 1 or 1, 2, 3, 4, 5 or 1 2 3 4 5" GotFocus="Input_GotFocus"></TextBox>
             <Button x:Name="AddElementsButton" Width="150" Content="Add number" Click="AddElementsButton_Click"></Button>
             <StackPanel Orientation="Horizontal" Height="40" Width="240" Margin="0 30 0 0">
                 <StackPanel.Resources>
@@ -29,17 +29,19 @@
                         <Setter Property="Width" Value="80"></Setter>
                         <Setter Property="FontSize" Value="12"></Setter>
                         <Setter Property="IsEnabled" Value="False"></Setter>
+                        <Setter Property="Background" Value="#9ae69a"></Setter>
+                        <Setter Property="Foreground" Value="#1E1E1E"></Setter>
                     </Style>
                 </StackPanel.Resources>
-                <Button x:Name="DeleteFirstButton" Content="Delete first"></Button>
+                <Button x:Name="DeleteFirstButton" Content="Delete first" Click="DeleteFirstButton_Click"></Button>
                 <Button x:Name="DeleteSelectedButton"  Content=" Delete&#xD;&#xA;selected" HorizontalContentAlignment="Center" Click="DeleteSelectedButton_Click"></Button>
-                <Button x:Name="DeleteLastButton"  Content="Delete last"></Button>
+                <Button x:Name="DeleteLastButton"  Content="Delete last" Click="DeleteLastButton_Click"></Button>
             </StackPanel>
-            <Button x:Name="FillButton" Content="Fill" Width="150"></Button>
-            <Button x:Name="ClearButton" Content="Clear" Width="150"></Button>
-            <Button x:Name="RunButton" Content="Run" Width="150"></Button>
+            <Button x:Name="FillButton" Content="Fill" Width="150" Click="FillButton_Click"></Button>
+            <Button x:Name="ClearButton" Content="Clear" Width="150" Click="ClearButton_Click"></Button>
+            <Button x:Name="RunButton" Content="Run" Width="150" Click="RunButton_Click"></Button>
         </StackPanel>
-        <ListBox x:Name="ArrayBox" Grid.Column="0" Margin="30" MinWidth="450" MaxWidth="450" SelectionMode="Extended" HorizontalAlignment="Left" VerticalAlignment="Center" Height="70" Background="#1f1f1f" SelectionChanged="ArrayBox_SelectionChanged">
+        <ListBox x:Name="ArrayBox" Grid.Column="0" Margin="20 0 0 0" MinWidth="500" MaxWidth="500" SelectionMode="Extended" HorizontalAlignment="Left" VerticalAlignment="Center" Height="70" Background="#1f1f1f" SelectionChanged="ArrayBox_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Hidden">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding}"></TextBlock>
