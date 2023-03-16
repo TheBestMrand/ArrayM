@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.ComponentModel;
+using System.Windows.Input;
 
 namespace LaboratoryWork1
 {
@@ -155,5 +156,14 @@ namespace LaboratoryWork1
         /// Fills the Numbers array with predefined test values
         /// </summary>
         private void FillButton_Click(object sender, RoutedEventArgs e) => Numbers = _test;
+
+        private void Input_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                e.Handled = true;
+                AddElementsButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
+        }
     }
 }

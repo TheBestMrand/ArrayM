@@ -21,7 +21,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1">
-            <TextBox x:Name="Input" Width="150" Height="40" Margin="0 30 0 0" TextAlignment="Left" VerticalContentAlignment="Center" Text="Look at the tooltips" ToolTip="Input number or array like this: 1 or 1, 2, 3, 4, 5 or 1 2 3 4 5" GotFocus="Input_GotFocus"></TextBox>
+            <TextBox x:Name="Input" Width="150" Height="40" Margin="0 30 0 0" TextAlignment="Left" VerticalContentAlignment="Center" Text="Look at the tooltips" ToolTip="Input number or array like this: 1 or 1, 2, 3, 4, 5 or 1 2 3 4 5" GotFocus="Input_GotFocus" KeyDown="Input_KeyDown"></TextBox>
             <Button x:Name="AddElementsButton" Width="150" Content="Add number" Click="AddElementsButton_Click"></Button>
             <StackPanel Orientation="Horizontal" Height="40" Width="240" Margin="0 30 0 0">
                 <StackPanel.Resources>
