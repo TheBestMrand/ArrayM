@@ -45,7 +45,7 @@ namespace LaboratoryWork1
         }
 
         /// <summary>
-        /// Initializes the MainWindow and sets the standart values
+        /// Initializes and sets the standart values
         /// </summary>
         public MainWindow()
         {
@@ -57,7 +57,7 @@ namespace LaboratoryWork1
         }
 
         /// <summary>
-        /// Handles the AddElementsButton click event and validates the input before adding it to the Numbers array
+        /// Мalidates the input before adding it to the Numbers array
         /// </summary>
         private void AddElementsButton_Click(object sender, RoutedEventArgs e)
         {
@@ -125,7 +125,7 @@ namespace LaboratoryWork1
         private void DeleteFirstButton_Click(object sender, RoutedEventArgs e) => Numbers = Numbers.Remove(0);
 
         /// <summary>
-        /// Removes the last element from the Numbers array.
+        /// Removes the last element from the Numbers array
         /// </summary>
         private void DeleteLastButton_Click(object sender, RoutedEventArgs e) => Numbers = Numbers.Remove(Numbers.Length - 1);
 
